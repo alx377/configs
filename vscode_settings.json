@@ -1,0 +1,85 @@
+{
+    "editor.wordWrap": "on",
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": false,
+    "files.exclude": {
+        "*.pyc": true,
+        "**/__pycache__": true,
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/CVS": true,
+        "**/docker-data": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "*.pyc": true
+    },
+    "files.trimTrailingWhitespace": true,
+    "window.zoomLevel": -1,
+    "workbench.editor.tabSizing": "shrink",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "explorer.confirmDragAndDrop": false,
+    "cSpell.userWords": [
+        "astimezone",
+        "chatsessiontag",
+        "datasource",
+        "event",
+        "fname",
+        "generic",
+        "giosg",
+        "giosgchat",
+        "granularities",
+        "hdfs",
+        "lname",
+        "longsum",
+        "mktime",
+        "orgs",
+        "periods",
+        "pydruid",
+        "pytz",
+        "ranularitie",
+        "serializer",
+        "to",
+        "topn",
+        "tzname",
+        "untrusted"
+    ],
+    "files.associations": {
+        "*.tmpl": "html"
+    },
+    "editor.minimap.maxColumn": 60,
+    "editor.mouseWheelZoom": true,
+    "editor.smoothScrolling": true,
+    "explorer.confirmDelete": false,
+    "window.titleBarStyle": "custom",
+    "[python]": {},
+    "python.venvFolders": [
+        "envs",
+        ".pyenv",
+        ".direnv",
+        ".virtualenvs"
+    ],
+    "python.autoComplete.addBrackets": true,
+    "python.linting.mypyEnabled": false,
+    "python.pythonPath": "${env.HOME}/.virtualenvs/${workspaceRootFolderName}/bin/python",
+    "workbench.list.keyboardNavigation": "filter",
+    "editor.suggestSelection": "first",
+    "runOnSave.statusMessageTimeout": 3000,
+    // "runOnSave.commands": [
+    //     {
+    //         "match": ".*\\.tsx|.js$",
+    //         "notMatch": "[\\\\\\/]_[^\\\\\\/]*\\.scss$",
+    //         "command": "cd ${workspaceFolder}/setup_page_src && rm -rf ${workspaceFolder}/giosgapp/static/css && rm -rf ${workspaceFolder}/giosgapp/static/js && npm run build && cp ${workspaceFolder}/setup_page_src/build/static ${workspaceFolder}/giosgapp -r && cp ${workspaceFolder}/setup_page_src/build/index.html ${workspaceFolder}/giosgapp/templates/setup.html -f && cd ${workspaceFolder}/order_status_src && rm -rf ${workspaceFolder}/identification_api/static/css && rm -rf ${workspaceFolder}/identification_api/static/js && npm run build && cp ${workspaceFolder}/order_status_src/build/static ${workspaceFolder}/identification_api -r && cp ${workspaceFolder}/order_status_src/build/index.html ${workspaceFolder}/identification_api/templates/bankid_order_status.html -f",
+    //         "runIn": "backend",
+    //         "runningStatusMessage": "Compiling ${fileBasename}",
+    //         "finishStatusMessage": "${fileBasename} compiled"
+    //     }
+    // ],
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
+}
+
