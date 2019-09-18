@@ -77,7 +77,7 @@ Options.PlayerNicks = {
   'Katriel White': 'Luikauttelija',
   'Panic Nyannyan': 'Pade Perse Mies',
   'Reijo Frost': 'REIJOOOOO',
-  'Izmo Laitela': 'IIISMOOOOO',
+  'Izmo Laitela': 'ISMOOOOO',
   'Raj Doe': 'Borgen',
   'Dinjoriina Myllaaja': 'Dinjoooo',
   'Admiral Lalapult': 'Kaapio Mamuti',
@@ -100,7 +100,7 @@ Options.PlayerNicks = {
 
 // // An array of user-defined triggers, in the format defined in the readme:
 // // https://github.com/quisquous/cactbot/tree/master/ui/raidboss/data/triggers
-// Options.Triggers = [
+Options.Triggers = [
 
 //   // (1) Simple example trigger: show text on screen when you die.
 //   {
@@ -153,37 +153,51 @@ Options.PlayerNicks = {
 //       hideall "Long Castbar"
 //     `,
 
-//     // Add some additional triggers that will go off in Summerford Farms.
-//     triggers: [
-//       // If you provoke the striking dummy (or anything), this will trigger.
-//       {
-//         id: 'User Example Provoke',
-//         regex: /You use Provoke/,
-//         infoText: 'Provoke!',
-//         tts: 'provoke',
-//       },
+    // Add some additional triggers that will go off in Summerford Farms.
+    // triggers: [
+      // If you provoke the striking dummy (or anything), this will trigger.
+      // {
+      //   id: 'User Example Provoke',
+      //   regex: /You use Provoke/,
+      //   infoText: 'Provoke!',
+      //   tts: 'provoke',
+      // },
 
-//       // A more complicated regen trigger.
-//       {
-//         id: 'User Example Regen',
-//         // This will match log lines from ACT that look like this:
-//         // "Nacho Queen gains the effect of Regen from Taco Cat for 21.00 Seconds."
-//         regex: /gains the effect of Regen from \y{Name} for (\y{Float}) Seconds/,
-//         delaySeconds: function(data, matches) {
-//           // Wait the amount of seconds regen lasts before reminding you to
-//           // reapply it.  This is not smart enough to figure out if you
-//           // cast it twice, and is left as an exercise for the reader to
-//           // figure out how to do so via storing variables on `data`.
-//           return data.ParseLocaleFloat(matches[1]);
-//         },
+      // A more complicated regen trigger.
+      {
+        zoneRegex: /.*/,
+        triggers: [
+            // If you provoke the striking dummy (or anything), this will trigger.
+            // {
+            //   id: 'User Example Provoke',
+            //   regex: /You use Provoke/,
+            //   infoText: 'Provoke!',
+            //   tts: 'provoke',
+            // },
 
-//         alertText: 'Regen Reminder',
-//         tts: 'regen',
-//       },
-//     ],
-//   },
+            // A more complicated regen trigger.
+          {
+            id: 'Windbite',
+            // This will match log lines from ACT that look like this:
+            // "Nacho Queen gains the effect of Regen from Taco Cat for 21.00 Seconds."
+            regex: /suffers the effect of Windbite/,
+            delaySeconds: function(data, matches) {
+              // Wait the amount of seconds regen lasts before reminding you to
+              // reapply it.  This is not smart enough to figure out if you
+              // cast it twice, and is left as an exercise for the reader to
+              // figure out how to do so via storing variables on `data`.
+              console.log(data);
+              console.log(matches[1]);
+              console.log(data.ParseLocaleFloat(matches[1]));
+              return 25;
+            },
 
-// ];
+            alertText: 'Dot Reminder',
+            tts: 'Dots',
+          },
+        ],
+      }
+];
 
 // // Per trigger options.  By default, each trigger uses the global options
 // // of TextAlertsEnabled, SoundAlertsEnabled, and SpokenAlertsEnabled.
