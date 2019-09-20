@@ -163,40 +163,65 @@ Options.Triggers = [
       //   tts: 'provoke',
       // },
 
-      // A more complicated regen trigger.
+      // My triggers
       {
         zoneRegex: /.*/,
         triggers: [
-            // If you provoke the striking dummy (or anything), this will trigger.
-            // {
-            //   id: 'User Example Provoke',
-            //   regex: /You use Provoke/,
-            //   infoText: 'Provoke!',
-            //   tts: 'provoke',
-            // },
-
-            // A more complicated regen trigger.
           {
-            id: 'Windbite',
-            // This will match log lines from ACT that look like this:
-            // "Nacho Queen gains the effect of Regen from Taco Cat for 21.00 Seconds."
-            regex: /suffers the effect of Windbite/,
+            id: 'Venomous Bite.',
+            regex: /You use Venomous Bite/,
             delaySeconds: function(data, matches) {
-              // Wait the amount of seconds regen lasts before reminding you to
-              // reapply it.  This is not smart enough to figure out if you
-              // cast it twice, and is left as an exercise for the reader to
-              // figure out how to do so via storing variables on `data`.
-              console.log(data);
-              console.log(matches[1]);
-              console.log(data.ParseLocaleFloat(matches[1]));
               return 25;
             },
 
             alertText: 'Dot Reminder',
             tts: 'Dots',
           },
+          {
+            id: 'wanderer minuet',
+            regex: /You cast The Wanderer's Minuet/,
+            delaySeconds: function(data, matches) {
+              return 27;
+            },
+
+            alertText: 'Blue song',
+            tts: 'Blue song',
+          },
+          {
+            id: 'Armys paeon',
+            regex: /You cast Army's Paeon/,
+            delaySeconds: function(data, matches) {
+              return 20;
+            },
+
+            alertText: 'Green song',
+            tts: 'Green song',
+          },
+          {
+            id: 'Mages ballad',
+            regex: /You cast Mage's Ballad/,
+            delaySeconds: function(data, matches) {
+              return 27;
+            },
+
+            alertText: 'Yellow song',
+            tts: 'Yellow song',
+          },
+          {
+            id: 'General Reprisal',
+            regex: /:(\y{Name}):1D6D:Reprisal:/,
+            condition: function(data) {
+              return data.role == 'tank';
+            },
+            infoText: function(data, matches) {
+              return {
+                en: 'Reprisal: ' + data.ShortName(matches[1]),
+              };
+            },
+            tts: 'Other tank used reprisal'
+          }
         ],
-      }
+      },
 ];
 
 // // Per trigger options.  By default, each trigger uses the global options
