@@ -164,130 +164,73 @@ Options.Triggers = [
       // },
 
       // My triggers
+  {
+    zoneRegex: /.*/,
+    triggers: [
       {
-        zoneRegex: /.*/,
-        triggers: [
-          {
-            id: 'Stormbite.',
-            regex: /You use Stormbite/,
-            delaySeconds: function(data, matches) {
-              return 25;
-            },
-            alertText: 'Dot Reminder',
-            tts: 'Dots',
-          },
-          {
-            id: 'Iron Jaws.',
-            regex: /You use Iron Jaws/,
-            delaySeconds: function(data, matches) {
-              return 25;
-            },
-            alertText: 'Dot Reminder',
-            tts: 'Dots',
-          },
-          {
-            id: 'wanderer minuet',
-            regex: /You cast The Wanderer's Minuet/,
-            delaySeconds: function(data, matches) {
-              return 27;
-            },
-
-            alertText: 'Blue song',
-            tts: 'Blue song',
-          },
-          {
-            id: 'Armys paeon',
-            regex: /You cast Army's Paeon/,
-            delaySeconds: function(data, matches) {
-              return 20;
-            },
-
-            alertText: 'Green song',
-            tts: 'Green song',
-          },
-          {
-            id: 'Mages ballad',
-            regex: /You cast Mage's Ballad/,
-            delaySeconds: function(data, matches) {
-              return 27;
-            },
-
-            alertText: 'Yellow song',
-            tts: 'Yellow song',
-          },
-          {
-            id: 'General Reprisal',
-            regex: /:(\y{Name}):1D6D:Reprisal:/,
-            condition: function(data) {
-              return data.role == 'tank';
-            },
-            infoText: function(data, matches) {
-              console.log(matches);
-              return {
-                en: 'Reprisal: ' + data.ShortName(matches[1]),
-              };
-            },
-            tts: 'Other tank used reprisal'
-          }
-        ],
+        id: 'Stormbite.',
+        regex: /You use Stormbite/,
+        delaySeconds: function(data, matches) {
+          return 25;
+        },
+        alertText: 'Dot Reminder',
+        tts: 'Dots',
       },
+      {
+        id: 'Iron Jaws.',
+        regex: /You use Iron Jaws/,
+        delaySeconds: function(data, matches) {
+          return 25;
+        },
+        alertText: 'Dot Reminder',
+        tts: 'Dots',
+      },
+      {
+        id: 'wanderer minuet',
+        regex: /You cast The Wanderer's Minuet/,
+        delaySeconds: function(data, matches) {
+          return 27;
+        },
+
+        alertText: 'Blue song',
+        tts: 'Blue song',
+      },
+      {
+        id: 'Armys paeon',
+        regex: /You cast Army's Paeon/,
+        delaySeconds: function(data, matches) {
+          return 20;
+        },
+
+        alertText: 'Green song',
+        tts: 'Green song',
+      },
+      {
+        id: 'Mages ballad',
+        regex: /You cast Mage's Ballad/,
+        delaySeconds: function(data, matches) {
+          return 27;
+        },
+
+        alertText: 'Yellow song',
+        tts: 'Yellow song',
+      },
+      {
+        id: 'General Reprisal',
+        regex: /:(\y{Name}):1D6F:Reprisal:/,
+        condition: function(data) {
+          return data.role == 'tank';
+        },
+        infoText: function(data, matches) {
+          console.log(matches);
+          return {
+            en: 'Reprisal: ' + data.ShortName(matches[1]),
+          };
+        },
+        tts: 'Other tank used reprisal'
+      }
+    ],
+  },
 ];
 
-// // Per trigger options.  By default, each trigger uses the global options
-// // of TextAlertsEnabled, SoundAlertsEnabled, and SpokenAlertsEnabled.
-// // These global options are set up top in this file.
-// //
-// // If a per trigger entry is present (regardless if true/false), it will
-// // override whatever the global option is set to.
-// //
-// // SoundOverride (if present) behaves like 'sound' on an individual trigger, in
-// // that it will take the place of the info/alert/alarm noise if no sound has
-// // been specified.  SoundAlert (or SoundAlertsEnabled) must still be true for
-// // that override to be played.
-// //
-// // Here's some example per trigger options that modify the test triggers
-// // in Summerford Farms:
-// // https://github.com/quisquous/cactbot/blob/master/ui/raidboss/data/triggers/test.js
-
-// Options.PerTriggerOptions = {
-//   // Just like Options.DisabledTriggers, this is the trigger id to apply to.
-//   // This overrides the settings for the "/laugh" trigger from the test
-//   // triggers.  You can try this out by teleporting to Summerford Farms
-//   // and /laugh at a striking dummy.  It will use these settings and moo.
-//   'Test Laugh': {
-//     // Play the text to speech.
-//     SpeechAlert: false,
-//     // Play the sound alert.
-//     SoundAlert: true,
-//     // Show the info/alert/alarm text on screen.
-//     TextAlert: false,
-//     // Play this sound (replacing any sound from the original).
-//     SoundOverride: '../../resources/sounds/WeakAuras/CowMooing.ogg',
-//     // Play the sound (if any) at this volume.
-//     VolumeOverride: 0.3,
-//   },
-//   // This makes /poke-ing a striking dummy in Summerford Farms only
-//   // use text to speech with no visual text indicator or other sound.
-//   'Test Poke': {
-//     SpeechAlert: true,
-//     SoundAlert: false,
-//     TextAlert: false,
-//     // Override the tts output as well.
-//     TTSText: function(data) {
-//       return 'Custom Poke (' + data.pokes + ')';
-//     },
-//   },
-//   // This makes /clap-ing a striking dummy override the default
-//   // behavior to use the group TTS
-//   'Test Clap': {
-//     GroupSpeechAlert: true,
-//     SpeechAlert: true,
-//     SoundAlert: false,
-//     TextAlert: false,
-//     // Override the tts output as well.
-//     GroupTTSText: function(data) {
-//       return 'Custom CLAP';
-//     },
-//   },
-// };
-
+// :(\y{Name}):1D6D:
