@@ -168,12 +168,20 @@ Options.Triggers = [
         zoneRegex: /.*/,
         triggers: [
           {
-            id: 'Venomous Bite.',
-            regex: /You use Venomous Bite/,
+            id: 'Stormbite.',
+            regex: /You use Stormbite/,
             delaySeconds: function(data, matches) {
               return 25;
             },
-
+            alertText: 'Dot Reminder',
+            tts: 'Dots',
+          },
+          {
+            id: 'Iron Jaws.',
+            regex: /You use Iron Jaws/,
+            delaySeconds: function(data, matches) {
+              return 25;
+            },
             alertText: 'Dot Reminder',
             tts: 'Dots',
           },
@@ -214,6 +222,7 @@ Options.Triggers = [
               return data.role == 'tank';
             },
             infoText: function(data, matches) {
+              console.log(matches);
               return {
                 en: 'Reprisal: ' + data.ShortName(matches[1]),
               };
