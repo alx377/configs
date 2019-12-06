@@ -167,6 +167,7 @@ Options.Triggers = [
   {
     zoneRegex: /.*/,
     triggers: [
+      // BRD stuff
       {
         id: 'Stormbite.',
         regex: /You use Stormbite/,
@@ -211,10 +212,10 @@ Options.Triggers = [
         delaySeconds: function(data, matches) {
           return 27;
         },
-
         alertText: 'Yellow song',
         tts: 'Yellow song',
       },
+      // General stuff
       {
         id: 'General Reprisal',
         regex: /:(\y{Name}):1D6F:Reprisal:/,
@@ -222,12 +223,59 @@ Options.Triggers = [
           return data.role == 'tank';
         },
         infoText: function(data, matches) {
-          console.log(matches);
           return {
             en: 'Reprisal: ' + data.ShortName(matches[1]),
           };
         },
         tts: 'Other tank used reprisal'
+      },
+       {
+        id: 'General interject',
+        regex: /(\y{Name}) uses (Interject|Head Graze)/,
+        infoText: function(data, matches) {
+          return {
+            en: 'Used silence: ' + data.ShortName(matches[1]),
+          };
+        },
+      },
+      {
+        id: 'General battle voice',
+        regex: /(\y{Name}) uses Battle Voice/,
+        infoText: function(data, matches) {
+          return {
+            en: 'Battle Voice',
+          };
+        },
+      },
+      {
+        id: 'General brotherhood',
+        regex: /(\y{Name}) uses Brotherhood/,
+        infoText: function(data, matches) {
+          return {
+            en: 'Brotherhood',
+          };
+        },
+        tts: 'Brotherhood'
+      },
+      {
+        id: 'Trick Attack',
+        regex: /(\y{Name}) uses Trick Attack/,
+        infoText: function(data, matches) {
+          return {
+            en: 'Trick',
+          };
+        },
+        tts: 'Trick'
+      },
+      {
+        id: 'General battle litany',
+        regex: /(\y{Name}) uses Battle Litany/,
+        infoText: function(data, matches) {
+          return {
+            en: 'Battle litany: ' + data.ShortName(matches[1]),
+          };
+        },
+        tts: 'Battle Litany'
       }
     ],
   },
