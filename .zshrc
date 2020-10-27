@@ -5,7 +5,7 @@
 #eval "$(pyenv init -)"
 #pyenv init -
 export WORKON_HOME="/home/alx/.virtualenvs"
-export VIRTUALENVWRAPPER_PYTHON="/home/alx/.pyenv/versions/3.8.6/bin/python"
+#export VIRTUALENVWRAPPER_PYTHON="/home/alx/.pyenv/versions/3.8.6/bin/python"
 export TILLER_NAMESPACE=integrations
 
 # Path to your oh-my-zsh installation.
@@ -43,10 +43,10 @@ load-nvmrc
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pyenv django docker docker-compose kubectl zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git pyenv virtualenvwrapper django docker docker-compose kubectl zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-source /home/alx/.pyenv/versions/3.8.6/bin/virtualenvwrapper.sh
+#source /home/alx/.pyenv/versions/3.8.6/bin/virtualenvwrapper.sh
 
 export TZ=UTC
 alias vnc=~/VNC-Viewer-6.17.1113-Linux-x64
